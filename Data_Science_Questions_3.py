@@ -1,6 +1,4 @@
 '''
-Assignment 1 - Data Cleaning & Exploration
-(30 points total)
 For this assignment, we will use an open dataset with data on various types of cereal and the corresponding customer ratings. Use the .csv file provided.
 Create a dataframe by importing the file into Jupyter, and complete the tasks below. Be sure to show your Python code. 
 You will not be graded on code efficiency, but your code should return a correct answer.
@@ -9,7 +7,6 @@ import pandas as pd
 data = pd.read_csv('...cereal.csv')
 
 '''
-Question 1. (4 points)
 Create a new 'Type of Cereal' column in your dataframe (1 point) by copying the 'name' column. Write a function to replace the names of the 
 cereal in your new column with one of these categories Bran, Wheat, Fiber, Protein, Crunch, Corn, Nut, Rice and Other (3 points). 
 Hint: the function should look through the text in the cereal name and determine, based on its contents, how to categorize the cereal type.
@@ -81,7 +78,6 @@ data = determine_cereal_category(data)
 data.head()
 
 '''
-Question 2. (2 points)
 Identify the negative values in the data set and replace them with the median value for that column.
 '''
 from pandas.api.types import is_numeric_dtype
@@ -108,7 +104,6 @@ for column in data:
 data.head()
 
 '''
-Question 3. (5 points)
 Standardize the 'weight' column to 1. For this question, you will need to write a function to divide the 
 remaining columns which contain nutritional information by the corresponding value in the weight column, 
 and you will need to divide the value in the weight column by itself in order to get 1. For example, 
@@ -171,7 +166,6 @@ data.head()
 
 
 '''
-Question 4. (5 points)
 Create a new column to categorize cereals as 'healthy' vs. 'unhealthy'. You can define your own version of healthy 
 vs. unhealthy, or you can use the following: healthy cereals can be defined as those which have low calories (<100), 
 low sodium (<150), low sugar (<9) high fiber (>3), and high protein (>2). All other cereals are unhealthy.
@@ -251,7 +245,6 @@ data.head()
 
 
 '''
-Question 5. (2 points)
 Based on your newly prepared data set, identify what % of cereals that each manufacturer produces are healthy.
 '''
 #My assumption was that the mfr column represented the manufacturer's name
@@ -272,7 +265,6 @@ for key, value in dct.items():
 
 
 '''
-Question 6. (2 points)
 Calculate the average, minimum and maximum ratings for healthy vs. unhealthy cereals.
 '''
 dct = defaultdict(list)
@@ -290,7 +282,6 @@ for key, value in dct.items():
     print(f"The following are the descriptive statistics for ratings of {key} cereals: average {avg_value:.2f}, minimum {min_value:.2f}, and maximum {max_value:.2f}.")    
 
 '''
-Question 7. (2 points)
 Calculate the average, minimum and maximum ratings for each type of cereal: Bran, Wheat, Fiber, Protein, Crunch, Corn, Nut, Rice and Other.
 '''
 dct = defaultdict(list)
@@ -309,7 +300,6 @@ for key, value in dct.items():
 
 
 '''
-Question 8. (3 points)
 Create a stacked bar chart which shows how many of each type of cereal each manufacturer produces.
 '''
 #My assumption was the type of cereal referred to either Bran, Wheat, Fiber, Protein, Crunch, Corn, Nut, Rice and Other. 
@@ -348,7 +338,6 @@ ax.set_ylabel('Count')
 plt.show(ax)
    
 '''
-Question 9. (3 points)
 Create a 3-dimensional scatterplot which shows the relationship between rating and calories; the 3-rd dimension 
 should be reflected in the color of the dots and should highlight whether the cereal is categorized as healthy or unhealthy.
 '''
@@ -364,7 +353,6 @@ df = pd.DataFrame(dict({'rating':list(data['rating'].values),
 sns.scatterplot(x=df['rating'], y=df['calories'], hue=df['Cereal_Category'])
 
 '''
-Question 10. (1 point)
 Which shelf has the most healthy cereals?
 '''
 dct = defaultdict(list)
@@ -380,7 +368,6 @@ print(f'Shelf 1 holds {shelf_count[1]} healthy cereals, shelf 2 holds {shelf_cou
       f'and shelf 3 holds {shelf_count[3]} healthy cereals. Therefore, shelf {max(shelf_count, key=shelf_count.get)} holds the most healthy cereals.')    
 
 '''
-Question 11. (1 point)
 Based on the analysis conducted, what can you conclude about the cereal data set?
 '''
 '''
