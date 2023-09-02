@@ -1,14 +1,9 @@
-'''
-For this assignment, we will use an open dataset with data on various types of cereal and the corresponding customer ratings. Use the .csv file provided.
-Create a dataframe by importing the file into Jupyter, and complete the tasks below. Be sure to show your Python code. 
-You will not be graded on code efficiency, but your code should return a correct answer.
-'''
 import pandas as pd
 data = pd.read_csv('...cereal.csv')
 
 '''
-Create a new 'Type of Cereal' column in your dataframe (1 point) by copying the 'name' column. Write a function to replace the names of the 
-cereal in your new column with one of these categories Bran, Wheat, Fiber, Protein, Crunch, Corn, Nut, Rice and Other (3 points). 
+Create a new 'Type of Cereal' column in your dataframe by copying the 'name' column. Write a function to replace the names of the 
+cereal in your new column with one of these categories Bran, Wheat, Fiber, Protein, Crunch, Corn, Nut, Rice and Other. 
 Hint: the function should look through the text in the cereal name and determine, based on its contents, how to categorize the cereal type.
 '''
 import re
@@ -367,16 +362,7 @@ shelf_count = {column_name: value.count('healthy') for column_name, value in dct
 print(f'Shelf 1 holds {shelf_count[1]} healthy cereals, shelf 2 holds {shelf_count[2]} healthy cereals,' 
       f'and shelf 3 holds {shelf_count[3]} healthy cereals. Therefore, shelf {max(shelf_count, key=shelf_count.get)} holds the most healthy cereals.')    
 
-'''
-Based on the analysis conducted, what can you conclude about the cereal data set?
-'''
-'''
-Only 29% of the manufacturers produce healthy cereals. Healthy cereals generally contain less calories and are 
-rated higher by consumers compared to unhealthy cereals. Furthermore, the cereal with the highest average rating
-is fibre. Lastly, assuming shelf 1 is the top shelf, 2 is the middle shelf, and 3 is the bottom shelf, there are
-only healthy cereals on the top and bottom shelf. Generally the middle shelf is at the consumers eye level, therefore
-they see those products first. This could suggests that the unhealthy cereals are being marketed to the consumers first.   
-'''
+
 
 
 
